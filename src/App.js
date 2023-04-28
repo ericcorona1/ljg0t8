@@ -14,10 +14,14 @@ export default function Board() {
   const [squares, setSquares] = useState(Array(9).fill(null));
 
   function handleClick(i) {
+    if (squares[i]) {
+      return;
+    }
+
     const nextSquares = squares.slice();
-    xIsNext ? nextSquares[i] = "X" : nextSquares[i] = "O";
+    xIsNext ? (nextSquares[i] = "X") : (nextSquares[i] = "O");
     setSquares(nextSquares);
-    setXIsNext(!xIsNext)
+    setXIsNext(!xIsNext);
   }
 
   return (
@@ -39,4 +43,25 @@ export default function Board() {
       </div>
     </div>
   );
+}
+
+function calculateWinner(squares) {
+  const winLines = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6],
+  ];
+
+  for (let i = 0; i < winLines.length; i++) {
+    const [a, b, c] = winLines[i];
+    if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+      return squares[a];
+    }
+  }
+  return null;
 }
