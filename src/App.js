@@ -27,7 +27,7 @@ function Board({ xIsNext, squares, onPlay }) {
     : "Next player: " + (xIsNext ? "X" : "O");
 
   return (
-    <div className="wrapper">
+    <div className="board-wrapper">
       <div className="status">{status}</div>
       <div className="whole-board">
         <div className="board-row">
@@ -75,9 +75,7 @@ export default function Game() {
 
   return (
     <div className="game">
-      <div className="game-board">
-        <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
-      </div>
+      <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
       <div className="game-info">
         <ol>{moves}</ol>
       </div>
