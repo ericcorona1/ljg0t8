@@ -111,11 +111,15 @@ body {
 .status {
   margin-bottom: 10px;
 }
+
 .game {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* .game-info {
-  margin-left: 20px;
-} */
+@media screen and (orientation: landscape) {
+  .game {
+    flex-direction: row;
+  }
+}
