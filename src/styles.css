@@ -1,6 +1,6 @@
 :root {
   --font-primary: clamp(3rem, 10vw, 20rem);
-  --font-next: clamp(0.5rem, 5vw, 8rem);
+  --font-next: clamp(2rem, 5vw, 8rem);
 }
 
 * {
